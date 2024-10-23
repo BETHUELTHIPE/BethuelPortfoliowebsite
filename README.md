@@ -1,4 +1,4 @@
-# Bethuel-Dynamic-Portfolio-website used python and Django fully ready for deployment
+# Bethuel-Dynamic-Portfolio-website used python and Django Partially ready for deployment
 Contact page fully responsive.
 Resume can be downloaded on my portfolio website.
 Email with pdf resume attached automatically send to the user after completing the contact form.
