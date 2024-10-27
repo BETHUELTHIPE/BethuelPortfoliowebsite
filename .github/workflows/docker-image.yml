@@ -34,7 +34,7 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.bethuelm/portfolio-app }}  # Add your Docker Hub username to Secrets
+        username: ${{ secrets.username }}  # Add your Docker Hub username to Secrets
         password: ${{ secrets.DOCKER_PASSWORD }}  # Add your Docker Hub password to Secrets
 
     - name: Build Docker image
