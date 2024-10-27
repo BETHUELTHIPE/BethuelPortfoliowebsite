@@ -47,5 +47,4 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push bethuelm/portfolio-app:latest  # Fixed typo: added space before the image name
 
-volumes:
-  pg_data:
+
