@@ -1,16 +1,17 @@
 {
-    "builds": [
-      {
-        "src": "portfolio/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "50mb" }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "portfolio/wsgi.py"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
+    }
+  ],
+  "env": {
+    "POSTGRES_DB": "Bethuelresumedb",
+    "POSTGRES_USER": "Bethuel",
+    "POSTGRES_PASSWORD": "23498812"
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
