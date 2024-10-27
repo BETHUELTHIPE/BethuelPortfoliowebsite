@@ -1,18 +1,14 @@
-# Dockerfile
-
 FROM python:3.11
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy requirements.txt into the container at /app
-COPY requirements.txt .
-
-# Install dependencies
+# Copy requirements.txt and install dependencies
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY . .
+# Copy the rest of the application code
+COPY . /app/
 
-# Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Command to run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "portfolio.wsgi:application"]
