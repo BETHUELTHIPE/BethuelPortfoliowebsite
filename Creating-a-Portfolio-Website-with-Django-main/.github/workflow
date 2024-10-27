@@ -50,7 +50,8 @@ jobs:
         docker-compose down
 
     - name: Push Docker image to Docker Hub
-      run: docker push your-docker-repo-name:latest
+      run: docker login -u bethuelm -p ${{ secrete.DOCKER_PASSWORD}}
+          docker push bethuelm/bethuel-website-portfolio:latest
 
 volumes:
-  pg_data:
+  pg_data: 
