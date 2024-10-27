@@ -1,6 +1,7 @@
-name: Django CI
+name: Build and Publish image to Docker Hub
 
 on:
+
   push:
     branches: [ "main" ]
   pull_request:
@@ -42,7 +43,7 @@ jobs:
     - name: Run tests
       run: |
         docker-compose up -d
-        docker-compose exec web python manage.py test  # Adjust if necessary
+        docker-compose exec web python manage.py testry 
         docker-compose down
 
     - name: Push Docker image to Docker Hub
