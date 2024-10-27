@@ -1,26 +1,19 @@
-
-
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Base directory path
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Adjust this if your static files are in a different location
+]
 
+# Security settings
+SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-default-key")
+DEBUG = os.getenv("DEBUG", "True") == "True"
+ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily (not recommended for production)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "SECRET_KEY"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['bethuel-portfoliowebsite.vercel.app','.versel.app','.now.sh']
-
-
-# Application definition
-
+# Installed applications
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -28,12 +21,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "resume"
- 
-   
-
+    "resume",
 ]
 
+# Middleware configuration
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -42,11 +33,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
-] 
+]
 
+# URL configuration
 ROOT_URLCONF = "portfolio.urls"
 
+# Template settings
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -63,74 +55,39 @@ TEMPLATES = [
     },
 ]
 
+# WSGI application
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-#DATABASES = {
-    #"default": {
-       # "ENGINE": "django.db.backends.sqlite3",
-       # "NAME": BASE_DIR / "db.sqlite3",
-    #}
-#}
-
-SECRET_KEY = os.environ.get('SECRET_KEY', 'default_secret_key')
+# Database configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'Bethuelresumedb',
+        'NAME': 'Bethuelresumedb',  # Ensure this is correct
+        'USER': 'Bethuel',
+        'PASSWORD': '23498812',
+        'HOST': 'db',  # Docker service name for PostgreSQL
         'PORT': '5432',
     }
 }
 
-
-
-
 # Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
+# Internationalization settings
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"  # where collected files go
+STATICFILES_DIRS = [BASE_DIR / "static"]  # additional static files directory
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
+# Default auto field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
