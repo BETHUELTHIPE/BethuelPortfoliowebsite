@@ -16,7 +16,7 @@ SECRET_KEY = "SECRET_KEY"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [bethuel-portfoliowebsite.vercel.app]
+ALLOWED_HOSTS = ['bethuel-portfoliowebsite.vercel.app','.versel.app','.now.sh']
 
 
 # Application definition
