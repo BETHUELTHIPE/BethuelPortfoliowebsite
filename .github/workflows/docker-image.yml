@@ -11,7 +11,8 @@ on:
 jobs:
   build:
   
-    runs-on: githubrunner-1
+    runs-on: 
+      -Linux x64
     services:
       db:
         image: postgres:latest
