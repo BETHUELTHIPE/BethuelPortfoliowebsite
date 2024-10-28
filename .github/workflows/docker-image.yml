@@ -5,13 +5,12 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  repository_dispatch:
+    types: [ "trigger-build" ]  # Allow manual triggers from external sources
 
 jobs:
   build:
-  
-    runs-on: self-hosted
-        -label-1
-     
+    runs-on: self-hosted  # Run on a self-hosted runner
     services:
       db:
         image: postgres:latest
@@ -72,4 +71,5 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push bethuelm/portfolio-app:latest
 
-
+volumes:
+  pg_data:
