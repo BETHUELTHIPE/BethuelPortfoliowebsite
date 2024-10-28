@@ -12,7 +12,7 @@ jobs:
   build:
   
     runs-on: 
-      -githubrunner-1
+      githubrunner-1
     services:
       db:
         image: postgres:latest
