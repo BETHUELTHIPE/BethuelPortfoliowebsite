@@ -53,6 +53,10 @@ jobs:
         run: docker images  # List images for debugging
 
       - name: Run tests
+        env:
+          POSTGRES_DB: Bethuelresumedb
+          POSTGRES_USER: Bethuel
+          POSTGRES_PASSWORD: 23498812
         run: |
           docker-compose up -d
           docker-compose exec web python manage.py test
@@ -60,5 +64,4 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: docker push bethuelm/portfolio-app:latest
-
 
