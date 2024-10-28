@@ -10,9 +10,10 @@ on:
 
 jobs:
   build:
-  
-    runs-on: 
-      githubrunner-1
+    #runs-on: self-hosted  # This indicates a self-hosted runner
+    # If you need to target a specific runner with a label, you can use:
+     runs-on: [self-hosted, githubrunner-1]
+
     services:
       db:
         image: postgres:latest
