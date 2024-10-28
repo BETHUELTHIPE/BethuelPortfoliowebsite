@@ -61,6 +61,12 @@ jobs:
       - name: List Docker images
         run: docker images
 
+      # Step to run database migrations
+      - name: Run database migrations
+        run: |
+          docker-compose up -d
+          docker-compose exec web python manage.py migrate
+
       # Step to run tests inside the Docker container
       - name: Run tests
         run: |
@@ -68,7 +74,13 @@ jobs:
           docker-compose exec web python manage.py test
           docker-compose down
 
+      # Step to get container logs for debugging
+      - name: Get container logs
+        run: docker-compose logs web
+
       # Step to push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
         run: docker push bethuelm/portfolio-app:latest
 
+volumes:
+  pg_data: {}
