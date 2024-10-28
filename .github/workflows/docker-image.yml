@@ -10,8 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: githubrunner-1 # Change this to self-hosted for your own runner
-    # You can specify the exact label if necessary, e.g., runs-on: [self-hosted, label-2]
+  
+    runs-on: self-hosted, label-2 
 
     services:
       db:
