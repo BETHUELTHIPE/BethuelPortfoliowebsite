@@ -10,8 +10,7 @@ on:
 
 jobs:
   build:
-   
-     runs-on: [self-hosted, githubrunner-1]
+    runs-on: [self-hosted, githubrunner-1]
 
     services:
       db:
@@ -72,5 +71,5 @@ jobs:
       # Step to push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
         run: docker push bethuelm/portfolio-app:latest
-
-
+volumes:
+  pg_data:
