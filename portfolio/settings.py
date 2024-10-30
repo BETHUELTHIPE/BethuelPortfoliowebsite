@@ -60,14 +60,19 @@ TEMPLATES = [
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
 # Database configuration
+import environ
+
+env = environ.Env()
+environ.Env.read_env()  # reads .env file if you have one
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Bethuelresumedb',  # Ensure this is correct
-        'USER': 'Bethuel',
-        'PASSWORD': '23498812',
-        'HOST': 'db',  # Docker service name for PostgreSQL
-        'PORT': '5432',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
