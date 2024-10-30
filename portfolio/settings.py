@@ -11,7 +11,7 @@ STATICFILES_DIRS = [
 # Security settings
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-default-key")
 DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily (not recommended for production)
+ALLOWED_HOSTS = ['bethuel-website']  # Allow all hosts temporarily (not recommended for production)
 
 # Installed applications
 MIDDLEWARE = [
