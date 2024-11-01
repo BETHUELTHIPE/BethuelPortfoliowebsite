@@ -68,11 +68,11 @@ environ.Env.read_env()  # reads .env file if you have one
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': 'bethulwebsitedatabase',
+        'USER': 'BETHUEL',
+        'PASSWORD': '23498812',
+        'HOST': 'bethulwebsitedatabase.c7w0y4igu2gf.eu-west-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
