@@ -1,0 +1,16 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/creating-a-portfolio-website-with-django-mainn
+ExecStart=/home/ubuntu/creating-a-portfolio-website-with-django-main/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          portfolio.wsgi:application
+[Install]
+WantedBy=multi-user.target
