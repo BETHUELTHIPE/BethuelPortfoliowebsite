@@ -47,3 +47,5 @@ urllib3==2.2.1
 virtualenv==20.25.0
 whitenoise==6.8.1
 yarl==1.9.4
+whitenoise==6.6.0 
+gunicorn==21.2.0
